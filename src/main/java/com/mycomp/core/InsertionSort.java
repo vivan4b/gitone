@@ -1,27 +1,42 @@
 package com.mycomp.core;
 
-public class BubbleSortTest {
+public class InsertionSort {
 
     public static void main(String [] args)
     {
         int arr[] = {1,9,6,8,5,3,4};
 
-        for(int i=0;i<arr.length-1;i++)
-        {
-            for(int j=0;j<arr.length-1-i;j++)
 
+
+        for(int i=1;i<=arr.length-1;i++)
+        {
+            int correctIndex = i;
+            int value = arr[i];
+
+            for(int j=0;j<i;j++)
             {
-                if(arr[j]>arr[j+1])
+                if(arr[i]>arr[j])
                 {
-                    swap(arr,j,j+1);
+                    correctIndex = j+1;
+                }else
+                {
+                break;
                 }
             }
-        }
 
+            for(int k=i; k>correctIndex ; k--)
+            {
+                arr[k] = arr[k-1];
+            }
+
+            arr[correctIndex] = value;
+        }
 
         printArray(arr);
 
     }
+
+
 
     private static void printArray(int[] arr) {
 
@@ -39,4 +54,5 @@ public class BubbleSortTest {
         arr[min_indx] =x;
 
     }
+
 }
